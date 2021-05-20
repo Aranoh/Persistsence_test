@@ -4,21 +4,18 @@ using UnityEngine;
 
 namespace xmlSpace
 {
-    public class XmlFieldsTop
+    public class FieldsTop
     {
-        public string TopStringField;
-        public int TopIntField;
+        public string TopStringField = "top";
     }
-    public class XmlFieldsBase : XmlFieldsTop
+    public class FieldsBase : FieldsTop
     {
-        public string BaseStringField;
-        public int BaseIntField;
+        public string BaseStringField = "base";
     }
 
-    public class XmlFieldsDerived : XmlFieldsBase
+    public class FieldsDerived : FieldsBase
     {
-        public string DerivedStringField;
-        public int DerivedIntField;
+        public string DerivedStringField = "derived";
     }
 }
 

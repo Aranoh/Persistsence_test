@@ -4,9 +4,12 @@ using UnityEngine;
 using xmlSpace;
 
 
-public class BaseClass<T> : MonoBehaviour, Iinterface<T> where T : XmlFieldsBase
+public class BaseClass : MonoBehaviour
 {
-    private T _serializable;
-    public T Serializable { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public FieldsBase fieldsBase;
+    public virtual void print()
+    {
+        Debug.Log($"Base: {fieldsBase.BaseStringField}");
+    }
 
 }

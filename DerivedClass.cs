@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using xmlSpace;
 
-public class DerivedClass<T> : BaseClass<T> where T : XmlFieldsDerived, new()
+public class DerivedClass : BaseClass
 {
+    public FieldsDerived fieldsDerived;
+
+    public override void print()
+    {
+        //base.print();
+        Debug.Log($" Deriv: {fieldsDerived.DerivedStringField}");
+        Debug.Log($" Deriv: {fieldsDerived.BaseStringField}");
+    }
     void function()
     {
         //being able to access fields from here to top using the serializable XML classes
-        string somestring = Serializable.BaseStringField + Serializable.DerivedStringField + Serializable.TopStringField;
+        //string somestring = Serializable.BaseStringField + Serializable.DerivedStringField;
+        //+ Serializable.TopStringField;
     }
 }
 
