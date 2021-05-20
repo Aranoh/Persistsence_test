@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace xmlSpace
+namespace fieldsNamespace
 {
     public class FieldsTop
     {

@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using xmlSpace;
+using fieldsNamespace;
 
 
 public class Calls : MonoBehaviour
 {
-    //calls are made to the scripts to hopefully expose them to the persistent classes window.
-    //public ClassUsingGeneric<string> generic;
-    //public XmlFieldsDerived derivXML;
-    //public FieldsBase baseXml;
-    //DerivedClass<XmlFieldsDerived> deriv;
+    public void Start()
+    {
+        DerivedClass testDeriv = new DerivedClass();
+        testDeriv.print();
+        FieldsDerived fields = new FieldsDerived();
+        fields.BaseStringField = "base";
+        fields.DerivedStringField = "Deriv";
+        fields.TopStringField = "Top";
+        testDeriv.Serializable = fields;
+    }
+
 }

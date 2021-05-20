@@ -1,23 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using xmlSpace;
+using fieldsNamespace;
 
 public class DerivedClass : BaseClass
 {
-    public FieldsDerived fieldsDerived;
+    public new FieldsDerived Serializable
+    {
+        get => _serializable as FieldsDerived;
+        set => _serializable = value as FieldsDerived;
+    }
 
     public override void print()
     {
         //base.print();
-        Debug.Log($" Deriv: {fieldsDerived.DerivedStringField}");
-        Debug.Log($" Deriv: {fieldsDerived.BaseStringField}");
+        Debug.Log($" Deriv: {Serializable.BaseStringField}");
+        Debug.Log($" Deriv: {Serializable.DerivedStringField}");
     }
-    void function()
+
+    protected override void Awake()
     {
-        //being able to access fields from here to top using the serializable XML classes
-        //string somestring = Serializable.BaseStringField + Serializable.DerivedStringField;
-        //+ Serializable.TopStringField;
+        _serializable = new FieldsDerived();
+        Serializable.BaseStringField = "test";
+        Debug.Log(this.gameObject.name);
+        print();
+        base.print();
+
     }
 }
 
