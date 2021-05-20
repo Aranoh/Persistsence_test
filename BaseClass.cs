@@ -4,9 +4,9 @@ using UnityEngine;
 using xmlSpace;
 
 
-public class BaseClass<T> : MonoBehaviour, Iinterface<T> where T : XmlFieldsBase
+public class BaseClass : MonoBehaviour, IBase, ITop
 {
-    private T _serializable;
-    public T Serializable { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-
+   
+    public XmlFieldsTop xmlFieldTop { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public XmlFieldsBase xmlFieldBase { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 }

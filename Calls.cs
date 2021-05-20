@@ -10,5 +10,10 @@ public class Calls : MonoBehaviour
     public ClassUsingGeneric<string> generic;
     public XmlFieldsDerived derivXML;
     public XmlFieldsBase baseXml;
-    DerivedClass<XmlFieldsDerived> deriv;
+    // DerivedClass<XmlFieldsDerived> deriv;
+
+    public BaseClass bbase;
+    public DerivedClass deriv;
+
+
 }
