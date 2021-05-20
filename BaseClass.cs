@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using xmlSpace;
+
 
 public class BaseClass<T> : MonoBehaviour, Iinterface<T> where T : XmlFieldsBase
 {
