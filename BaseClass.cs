@@ -6,7 +6,7 @@ using fieldsNamespace;
 
 public class BaseClass : MonoBehaviour
 {
-    [SerializeField]
+    //[SerializeField]
     protected FieldsBase _serializable;
 
     public FieldsBase Serializable
@@ -17,13 +17,28 @@ public class BaseClass : MonoBehaviour
 
     public virtual void print()
     {
-        Debug.Log($"Base: {_serializable.BaseStringField}");
+        Debug.Log($"Base go: {this.gameObject.name}");
+        Debug.Log($"Base bs: {_serializable.BaseStringField}");
     }
 
     protected virtual void Awake()
     {
-        _serializable = new FieldsBase();
-        Debug.Log(this.gameObject.name);
-        print();
+        if (_serializable == null)
+            _serializable = new FieldsDerived();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                print();
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Serializable.BaseStringField = Random.Range(0, 100).ToString();
+            }
+        }
     }
 }

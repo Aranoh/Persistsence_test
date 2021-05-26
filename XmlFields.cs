@@ -1,18 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace fieldsNamespace
 {
-    public class FieldsTop
-    {
-        public string TopStringField = "top";
-    }
-    public class FieldsBase : FieldsTop
+    [Serializable]
+    public class FieldsBase
     {
         public string BaseStringField = "base";
     }
-
+    [Serializable]
     public class FieldsDerived : FieldsBase
     {
         public string DerivedStringField = "derived";

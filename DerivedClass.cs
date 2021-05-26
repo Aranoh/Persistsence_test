@@ -13,19 +13,33 @@ public class DerivedClass : BaseClass
 
     public override void print()
     {
-        //base.print();
-        Debug.Log($" Deriv: {Serializable.BaseStringField}");
-        Debug.Log($" Deriv: {Serializable.DerivedStringField}");
+        Debug.Log($"Deriv go: {this.gameObject.name}");
+        Debug.Log($"Deriv bs: {Serializable.BaseStringField}");
+        Debug.Log($"Deriv ds: {Serializable.DerivedStringField}");
+        base.print();
     }
 
     protected override void Awake()
-    {
-        _serializable = new FieldsDerived();
-        Serializable.BaseStringField = "test";
-        Debug.Log(this.gameObject.name);
-        print();
-        base.print();
+    {        
+        if (_serializable == null) 
+            _serializable = new FieldsDerived();
+    }
 
+    private void Update()
+    {
+        if (!Input.GetKey(KeyCode.LeftShift))
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                print();
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Serializable.BaseStringField = Random.Range(0, 100).ToString();
+                Serializable.DerivedStringField = Random.Range(0, 100).ToString();
+
+            }
+        }
     }
 }
 

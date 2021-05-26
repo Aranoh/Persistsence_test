@@ -13,7 +13,6 @@ public class Calls : MonoBehaviour
         FieldsDerived fields = new FieldsDerived();
         fields.BaseStringField = "base";
         fields.DerivedStringField = "Deriv";
-        fields.TopStringField = "Top";
         testDeriv.Serializable = fields;
     }
 
